@@ -1,0 +1,9 @@
+picks.example.com {
+    encode gzip
+    reverse_proxy nfl-picks:8000
+
+    @healthcheck {
+        path /healthz
+    }
+    respond @healthcheck 200
+}

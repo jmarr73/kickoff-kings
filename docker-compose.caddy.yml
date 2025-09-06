@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  nfl-picks:
+    build: .
+    container_name: nfl-picks
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    networks: [ web ]
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: nfl-picks-caddy
+    depends_on: [ nfl-picks ]
+    ports: [ "80:80", "443:443" ]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [ web ]
+    restart: unless-stopped
+
+networks:
+  web:
+
+volumes:
+  caddy_data:
+  caddy_config:

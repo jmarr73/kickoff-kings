@@ -1,0 +1,20 @@
+# Normalize line endings
+* text=auto eol=lf
+
+# Scripts (force LF)
+*.sh text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Binary files (keep as-is)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.ico binary
+*.gif binary
+*.zip binary
+*.tar.gz binary
+*.exe binary
+*.dll binary
