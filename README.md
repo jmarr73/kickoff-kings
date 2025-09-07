@@ -4,13 +4,12 @@ Self-hosted web app for making weekly NFL picks with friends or family.
 Pulls schedules/scores from ESPN’s public feed, lets each player lock picks, and tallies wins/losses.  
 Flat-file JSON storage. Easy to run locally or on a small VPS.
 
-<p align="center">
-  <b>Features:</b> multi-user support, token login links, auto game lock at kickoff, weekly & season totals (regular + playoffs), caching, one-click “Refresh Results”
-</p>
+**Features:** multi-user support, token login links, auto game lock at kickoff, weekly & season totals (regular + playoffs), caching, one-click “Refresh Results”
 
 ---
 
 ## Demo (Screens)
+
 - **Home**: select a week, view available weeks, quick links to results
 - **Week**: radio buttons for each game, Save Draft or Submit (lock)
 - **Results**: per-player breakdown, team abbreviations shown for picks/winners
@@ -21,11 +20,12 @@ Flat-file JSON storage. Easy to run locally or on a small VPS.
 ## Quick Start (Docker)
 
 ```bash
-git clone https://github.com/<your-username>/kickoff-kings.git
+git clone https://github.com/jmarr73/kickoff-kings.git
 cd kickoff-kings
 ```
 
 ### 1) Create .env with generated secrets/tokens
+
 ```bash
 cat > .env << 'EOF'
 FLASK_SECRET=$(openssl rand -hex 32)
@@ -43,7 +43,7 @@ EOF
 docker compose -f docker-compose.basic.yml up -d --build
 ```
 
-#### *open* http://localhost:8000/login/user1/$TOKEN_USER1
+#### *open* <http://localhost:8000/login/user1/$TOKEN_USER1>
 
 ### 3) Option B — HTTPS with Caddy (requires a domain)
 
@@ -53,7 +53,7 @@ docker compose -f docker-compose.basic.yml up -d --build
 docker compose -f docker-compose.caddy.yml up -d --build
 ```
 
-#### *open* https://picks.yourdomain.com/login/user1/$TOKEN_USER1
+#### *open* <https://picks.yourdomain.com/login/user1/$TOKEN_USER1>
 
 ---
 
@@ -68,9 +68,9 @@ docker compose -f docker-compose.caddy.yml up -d --build
 | `NFL_SEASONTYPE` | `2`     | 1 = Preseason, **2 = Regular**, 3 = Postseason         |
 | `BUILD_ID`       | (none)  | Optional; used for cache busting and `/healthz` output |
 
-#### Login URLs
+### Login URLs
 
-```
+```url
 /login/user1/$TOKEN_USER1
 /login/user2/$TOKEN_USER2
 ```
@@ -96,9 +96,9 @@ python -c "import secrets; print(secrets.token_hex(24))"   # User token
 
 All saved under `./data/` on the host (mounted into the container):
 
-* Picks: `picks-<year>-<week>.json`
-* Cached schedules: `schedule-<year>-<week>-t<type>.json`
-* Cached results: `results-<year>-<week>-t<type>.json`
+- Picks: `picks-<year>-<week>.json`
+- Cached schedules: `schedule-<year>-<week>-t<type>.json`
+- Cached results: `results-<year>-<week>-t<type>.json`
 
 ---
 
@@ -122,9 +122,9 @@ Steps:
 
 ## Development
 
-* App entrypoint: `app.py`
-* Static assets: `static/` (includes `favicon.svg` football icon)
-* Run locally without Docker (dev only):
+- App entrypoint: `app.py`
+- Static assets: `static/` (includes `favicon.svg` football icon)
+- Run locally without Docker (dev only):
 
   ```bash
   pip install -r requirements.txt
@@ -135,9 +135,9 @@ Steps:
 
 ## Notes
 
-* Uses ESPN’s public scoreboard JSON (no API key required).
-* Default setup provides 2 players (`user1`, `user2`), but you can add more in `.env`.
-* Works for regular season and postseason.
+- Uses ESPN’s public scoreboard JSON (no API key required).
+- Default setup provides 2 players (`user1`, `user2`), but you can add more in `.env`.
+- Works for regular season and postseason.
 
 ---
 
@@ -149,8 +149,5 @@ MIT — see [LICENSE](LICENSE).
 
 ### Acknowledgements
 
-* ESPN public scoreboard JSON for schedules & results
-* [Caddy](https://caddyserver.com/) for painless HTTPS with Let’s Encrypt
-
-```
-```
+- ESPN public scoreboard JSON for schedules & results
+- [Caddy](https://caddyserver.com/) for painless HTTPS with Let’s Encrypt\
