@@ -10,21 +10,17 @@ Flat-file JSON storage. Easy to run locally or on a small VPS.
 
 ## Demo (Screens)
 
-- **Home**: select a week, view available weeks, quick links to results  
-
-  ![Home Screenshot](docs/screens/home.png)
+- **User Home**: select a week, view available weeks, quick links to results  
+![Home Screenshot](docs/screens/home.png)
 
 - **Week**: radio buttons for each game, Save Draft or Submit (lock)  
-
 ![Week Screenshot](docs/screens/week.png)
 
 - **Results**: per-player breakdown, team abbreviations shown for picks/winners  
-
 ![Results Screenshot](docs/screens/results.png)
 
 - **Season totals**: regular season + postseason roll-up  
-
-[Season Totals Screenshot](docs/screens/season-totals.png)
+![Season Totals Screenshot](docs/screens/season-totals.png)
 
 ---
 
