@@ -1,4 +1,3 @@
-````markdown
 # Kick Off Kings — NFL Picks (Flask + Docker)
 
 Self-hosted web app for making weekly NFL picks with friends or family.  
@@ -43,7 +42,6 @@ docker compose -f docker-compose.basic.yml up -d --build
 # Set your DNS (e.g., picks.yourdomain.com -> server IP)
 docker compose -f docker-compose.caddy.yml up -d --build
 # open https://picks.yourdomain.com/login/user1/$TOKEN_USER1
-````
 
 ---
 
