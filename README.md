@@ -23,8 +23,10 @@ Flat-file JSON storage. Easy to run locally or on a small VPS.
 ```bash
 git clone https://github.com/<your-username>/kickoff-kings.git
 cd kickoff-kings
+```
 
-# 1) Create .env with generated secrets/tokens
+### 1) Create .env with generated secrets/tokens
+```bash
 cat > .env << 'EOF'
 FLASK_SECRET=$(openssl rand -hex 32)
 TOKEN_USER1=$(openssl rand -hex 24)
@@ -33,15 +35,25 @@ NFL_YEAR=2025
 NFL_SEASONTYPE=2
 BUILD_ID=localdev
 EOF
+```
 
-# 2) Option A — Local test (no HTTPS)
+### 2) Option A — Local test (no HTTPS)
+
+```bash
 docker compose -f docker-compose.basic.yml up -d --build
-# open http://localhost:8000/login/user1/$TOKEN_USER1
+```
 
-# 3) Option B — HTTPS with Caddy (requires a domain)
-# Set your DNS (e.g., picks.yourdomain.com -> server IP)
+#### *open* http://localhost:8000/login/user1/$TOKEN_USER1
+
+### 3) Option B — HTTPS with Caddy (requires a domain)
+
+#### Set your DNS (e.g., picks.yourdomain.com -> server IP)
+
+```bash
 docker compose -f docker-compose.caddy.yml up -d --build
-# open https://picks.yourdomain.com/login/user1/$TOKEN_USER1
+```
+
+#### *open* https://picks.yourdomain.com/login/user1/$TOKEN_USER1
 
 ---
 
