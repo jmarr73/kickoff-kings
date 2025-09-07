@@ -22,4 +22,3 @@ docker compose -f docker-compose.caddy.yml up -d --build  # (update Caddyfile do
 - Login URL format: `/login/<user>/<token>`
 
 Data persists in `./data/`. Results and schedules are cached. Click **Refresh Results** on the week page to bypass cache on demand.
->>>>>>> 2f2e5f9 (Initial commit for Kickoff Kings project)
